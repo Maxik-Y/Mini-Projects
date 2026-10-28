@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>Is this the correct answer?</h3>
+                <button id="b1" type="button" onclick="func1(this)">Wrong</button>
+                <button id="b2" type="button" onclick="func1(this)">Wrong</button>
+                <button id="b3" type="button" onclick="func1(this)">True</button>
+                <button id="b4" type="button" onclick="func1(this)">Wrong</button>
+                <p id="ot-part1"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>Type 'Correct' to win:</h3>
+                <input id="my-input" type="text" placeholder="Print 'Correct'">
+                <button type="button" onclick="checkInput()">SUBMIT</button>
+                <p id="ot-part2"></p>
+            </div>
+        </div>
+
+        <script>
+            function func1(element) {
+                const paragraph = document.getElementById('ot-part1');
+
+                if (element.id === 'b3') {
+                    element.style.backgroundColor = 'green';
+                    paragraph.textContent = 'Correct!';
+                } else {
+                    element.style.backgroundColor = 'red';
+                    paragraph.textContent = 'Incorrect!';
+                }
+            }
+
+            function checkInput() {
+                const inputElement = document.getElementById('my-input');
+                const inputValue = inputElement.value.trim();
+                const paragraph = document.getElementById('ot-part2');
+
+                if (inputValue === 'Correct') {
+                    inputElement.style.backgroundColor = 'green';
+                    paragraph.textContent = 'Correct!';
+                } else {
+                    inputElement.style.backgroundColor = 'red';
+                    paragraph.textContent = 'Incorrect!';
+                }
+            }
+        </script>
+    </body>
+</html>
